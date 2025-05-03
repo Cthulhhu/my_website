@@ -1,5 +1,6 @@
-import '../styles/globals.css'
-import Header from '../components/Header'
+// src/app/layout.js
+import './globals.css'
+import './animations.css'
 
 export const metadata = {
   title: 'Amin Nassraoui - Portfolio',
@@ -10,7 +11,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
         <main>{children}</main>
       </body>
     </html>

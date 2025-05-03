@@ -1,29 +1,30 @@
+/* src/app/globals.css */
 :root {
     --color-primary: #F41663;      /* Pink */
     --color-secondary: #C2EB0E;    /* Neon green */
+    --color-about-bg: #F6F7A7;     /* Yellow */
+    --color-projects-bg: #3741D2;  /* Blue */
+    --color-contact-bg: #AFB4E0;   /* Lavender */
     --color-dinner-bg: #B1EDE8;    /* Light teal */
     --color-dinner-text: #00732C;  /* Dark green */
     --color-zaitoun-bg: #FF5B5B;   /* Red */
     --color-zaitoun-text: #FFF1CC; /* Light cream */
     --color-minna-bg: #D14BFF;     /* Purple */
     --color-minna-text: #00FFFF;   /* Cyan */
-    --color-project-blue: #3741D2; /* Projects page blue */
-    --color-contact-purple: #AFB4E0; /* Contact page purple */
   }
-
-@font-face {
+  
+  @font-face {
     font-family: 'Segoe UI';
     src: local('Segoe UI');
     font-weight: normal;
     font-style: normal;
   }
   
-  html,
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    font-family: 'Segoe UI', Arial, sans-serif; /* Updated to use Segoe UI */
+  @font-face {
+    font-family: 'Segoe UI Bold';
+    src: local('Segoe UI Bold');
+    font-weight: bold;
+    font-style: normal;
   }
   
   * {
@@ -37,11 +38,23 @@
     max-width: 100vw;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    min-height: 100vh;
   }
   
   a {
+    color: inherit;
     text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Segoe UI Bold', 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
   }
   
   img {
@@ -49,12 +62,20 @@
     height: auto;
   }
   
-  /* Custom clip path for home page portrait */
-  .clip-path-custom {
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
   }
   
-  /* Vertical writing mode for flipped text */
-  .writing-mode-vertical {
-    writing-mode: vertical-rl;
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d01355;
   }

@@ -1,33 +1,59 @@
+/* src/app/globals.css */
 :root {
+  /* Core colors */
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Portfolio colors */
+  --color-primary: #F41663;      /* Pink */
+  --color-secondary: #C2EB0E;    /* Neon green */
+  --color-about-bg: #F6F7A7;     /* Yellow */
+  --color-projects-bg: #3741D2;  /* Blue */
+  --color-contact-bg: #AFB4E0;   /* Lavender */
+  --color-dinner-bg: #B1EDE8;    /* Light teal */
+  --color-dinner-text: #00732C;  /* Dark green */
+  --color-zaitoun-bg: #FF5B5B;   /* Red */
+  --color-zaitoun-text: #FFF1CC; /* Light cream */
+  --color-minna-bg: #D14BFF;     /* Purple */
+  --color-minna-text: #00FFFF;   /* Cyan */
+  
+  /* Layout variables */
+  --header-height: 80px;
+  --transition-speed: 0.4s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'Segoe UI';
+  src: local('Segoe UI');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI Bold';
+  src: local('Segoe UI Bold');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+body {
+  min-height: 100vh;
 }
 
 a {
@@ -35,8 +61,37 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Segoe UI Bold', 'Segoe UI', Arial, sans-serif;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d01355;
+}
+
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
