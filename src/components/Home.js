@@ -1,63 +1,67 @@
-'use client';
 // src/components/Home.js
+'use client';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
-import styles from '../app/page.module.css';
+import styles from './Home.module.css';
 
 export default function Home() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (sectionRef.current) {
+      sectionRef.current.classList.add(styles.visible);
+    }
+  }, []);
+
   return (
-    <section id="home" className={styles.homeSection}>
-      <div className={styles.nameSection}>
-        <h1 className={styles.nameTitle}>AMIN NASSRAOUI</h1>
-      </div>
-      
-      <div className={styles.contentContainer}>
-        <div className={styles.imageContainer}>
-          <Image
-            src="/images/Eye-looking.png"
-            alt="Portrait"
-            width={500}
-            height={650}
-            priority
-            className={styles.portrait}
-          />
+    <section id="home" className={styles.homeSection} ref={sectionRef}>
+      <div className={styles.homeContainer}>
+        <div className={styles.nameHeading}>
+          AMIN NASSRAOUI
         </div>
         
-        <div className={styles.textGrid}>
-          <div className={styles.heroTextContainer}>
-            <h2 className={styles.heroText}>
-              HELLO<br />
-              THERE
-            </h2>
-            <h2 className={`${styles.heroText} ${styles.flippedText}`}>
-              HELLO<br />
-              THERE
-            </h2>
+        <div className={styles.heroContent}>
+          <div className={styles.portraitContainer}>
+            <Image
+              src="/images/Eye-looking.png" 
+              alt="Portrait"
+              width={400}
+              height={500}
+              priority
+              className={styles.portrait}
+            />
           </div>
           
-          <div className={styles.welcomeTextContainer}>
-            <h2 className={styles.welcomeText}>
+          <div className={styles.greetingContainer}>
+            <h1 className={styles.greeting}>
+              HELLO<br />
+              THERE
+            </h1>
+            
+            <div className={styles.welcomeText}>
               WELCOME<br />
               TO<br />
               MY<br />
               PORTFOLIO
-            </h2>
+            </div>
           </div>
+        </div>
+        
+        <div className={styles.arrowsContainer}>
+          <div className={styles.arrow}>→</div>
+          <div className={styles.arrow}>→</div>
         </div>
       </div>
       
-      <div className={styles.arrows}>
-        <div className={styles.arrowRight}>→</div>
-        <div className={styles.arrowRight}>→</div>
+      <div className={styles.navigationLinks}>
+        <a href="#about" className={styles.navLink}>ABOUT</a>
+        <a href="#contact" className={styles.navLink}>CONTACT</a>
+        <a href="#projects" className={styles.navLink}>MY PROJECTS</a>
       </div>
       
-      <div className={styles.navigationContainer}>
-        <nav className={styles.navigation}>
-          <ul>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#projects">MY PROJECTS</a></li>
-          </ul>
-        </nav>
+      <div className={styles.scrollIndicator}>
+        <span className={styles.scrollText}>SCROLL DOWN</span>
+        <span className={styles.scrollArrow}>↓</span>
       </div>
     </section>
   );
