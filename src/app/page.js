@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import ScrollHandler from '../components/ScrollHandler';
 import SectionObserver from '../components/SectionObserver';
+import ProjectsSection from '../components/ProjectsSection'; // Imported the new component
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -20,7 +21,6 @@ export default function Home() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     
-    // Here you would typically send the data to a server
     console.log('Form submitted:', data);
     
     // For demo purposes, just show an alert
