@@ -3,6 +3,7 @@
 /* Updated container and section styles to ensure proper transitions */
 .container {
   scroll-behavior: smooth;
+  position: relative;
 }
 
 .homeSection, .aboutSection, .projectsSection, .contactSection, .projectDetailSection {

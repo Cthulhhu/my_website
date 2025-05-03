@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import ScrollHandler from '../components/ScrollHandler';
 import SectionObserver from '../components/SectionObserver';
+import Header from '../components/Header';
 import Home from '../components/Home';
 import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
@@ -30,19 +31,8 @@ export default function MainPage() {
         </>
       )}
 
-      {/* Fixed Header/Navigation */}
-      <header className={styles.header}>
-        <h1 className={styles.logo}>AMIN NASSRAOUI</h1>
-        <nav className={styles.nav}>
-          <ul>
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#portfolio">MY WORK</a></li>
-            <li><a href="#projects">MY PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-          </ul>
-        </nav>
-      </header>
+      {/* Header with Navigation */}
+      <Header />
 
       {/* Home Section */}
       <Home />
