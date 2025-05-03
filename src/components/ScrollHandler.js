@@ -47,12 +47,14 @@ export default function ScrollHandler() {
       // Get sections
       const homeSection = document.getElementById('home');
       const aboutSection = document.getElementById('about');
+      const portfolioSection = document.getElementById('portfolio');
       const projectsSection = document.getElementById('projects');
       const contactSection = document.getElementById('contact');
       
       // Get sections' positions
       const homeSectionTop = homeSection?.offsetTop || 0;
       const aboutSectionTop = aboutSection?.offsetTop || 0;
+      const portfolioSectionTop = portfolioSection?.offsetTop || 0;
       const projectsSectionTop = projectsSection?.offsetTop || 0;
       const contactSectionTop = contactSection?.offsetTop || 0;
       
@@ -62,6 +64,9 @@ export default function ScrollHandler() {
         header.style.backgroundColor = 'var(--color-contact-bg)';
         header.style.color = 'var(--color-primary)';
       } else if (scrollPosition >= projectsSectionTop - 100) {
+        header.style.backgroundColor = 'var(--color-projects-bg)';
+        header.style.color = 'var(--color-secondary)';
+      } else if (scrollPosition >= portfolioSectionTop - 100) {
         header.style.backgroundColor = 'var(--color-projects-bg)';
         header.style.color = 'var(--color-secondary)';
       } else if (scrollPosition >= aboutSectionTop - 100) {
@@ -83,6 +88,8 @@ export default function ScrollHandler() {
         document.querySelector('a[href="#contact"]')?.classList.add('active');
       } else if (scrollPosition >= projectsSectionTop - 100) {
         document.querySelector('a[href="#projects"]')?.classList.add('active');
+      } else if (scrollPosition >= portfolioSectionTop - 100) {
+        document.querySelector('a[href="#portfolio"]')?.classList.add('active');
       } else if (scrollPosition >= aboutSectionTop - 100) {
         document.querySelector('a[href="#about"]')?.classList.add('active');
       } else {

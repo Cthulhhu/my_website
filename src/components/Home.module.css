@@ -1,0 +1,206 @@
+/* src/components/Home.module.css */
+.homeSection {
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+  }
+  
+  .nameSection {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+  }
+  
+  .nameTitle {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin: 0;
+    font-family: 'Segoe UI Bold', 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .contentContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .imageContainer {
+    flex: 0 0 45%;
+    position: relative;
+  }
+  
+  .portrait {
+    width: 100%;
+    height: auto;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    filter: grayscale(100%);
+  }
+  
+  .textGrid {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .heroTextContainer {
+    position: relative;
+  }
+  
+  .heroText {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 0.9;
+    margin: 0;
+    color: var(--color-secondary);
+    font-family: 'Segoe UI Bold', 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .flippedText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(180deg);
+    opacity: 0.5;
+  }
+  
+  .welcomeTextContainer {
+    text-align: right;
+  }
+  
+  .welcomeText {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 0.9;
+    margin: 0;
+    color: var(--color-secondary);
+    font-family: 'Segoe UI Bold', 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .arrows {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .arrowRight {
+    font-size: 100px;
+    font-weight: bold;
+    color: var(--color-secondary);
+  }
+  
+  .navigationContainer {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 10;
+  }
+  
+  .navigation ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+  }
+  
+  .navigation a {
+    font-size: 24px;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .navigation a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1200px) {
+    .heroText, .welcomeText {
+      font-size: 100px;
+    }
+    
+    .arrowRight {
+      font-size: 80px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .contentContainer {
+      flex-direction: column;
+      gap: 50px;
+    }
+    
+    .imageContainer, .textGrid {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+    
+    .heroText, .welcomeText {
+      font-size: 80px;
+    }
+    
+    .arrows {
+      right: 30px;
+    }
+    
+    .navigationContainer {
+      position: relative;
+      top: auto;
+      right: auto;
+      margin-top: 30px;
+      align-self: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .homeSection {
+      padding: 20px;
+    }
+    
+    .nameSection {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-bottom: 30px;
+    }
+    
+    .nameTitle {
+      font-size: 36px;
+    }
+    
+    .contentContainer {
+      padding: 20px 0;
+    }
+    
+    .heroText, .welcomeText {
+      font-size: 60px;
+    }
+    
+    .navigation ul {
+      gap: 15px;
+    }
+    
+    .navigation a {
+      font-size: 18px;
+    }
+  }
