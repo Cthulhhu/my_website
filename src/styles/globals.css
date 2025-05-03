@@ -1,0 +1,60 @@
+:root {
+    --color-primary: #F41663;      /* Pink */
+    --color-secondary: #C2EB0E;    /* Neon green */
+    --color-dinner-bg: #B1EDE8;    /* Light teal */
+    --color-dinner-text: #00732C;  /* Dark green */
+    --color-zaitoun-bg: #FF5B5B;   /* Red */
+    --color-zaitoun-text: #FFF1CC; /* Light cream */
+    --color-minna-bg: #D14BFF;     /* Purple */
+    --color-minna-text: #00FFFF;   /* Cyan */
+    --color-project-blue: #3741D2; /* Projects page blue */
+    --color-contact-purple: #AFB4E0; /* Contact page purple */
+  }
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: local('Segoe UI');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Arial, sans-serif; /* Updated to use Segoe UI */
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Custom clip path for home page portrait */
+  .clip-path-custom {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  /* Vertical writing mode for flipped text */
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+  }

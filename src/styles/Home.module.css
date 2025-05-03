@@ -1,0 +1,245 @@
+/* src/styles/Home.module.css */
+.container {
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    position: relative;
+    padding: 20px 40px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: -1px;
+    color: var(--color-secondary);
+    font-family: 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav ul li {
+    margin-left: 30px;
+  }
+  
+  .nav ul li a {
+    font-size: 24px;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.3s;
+  }
+  
+  .nav ul li a:hover {
+    opacity: 0.8;
+  }
+  
+  .content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+    height: calc(100vh - 200px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .heroContent {
+    display: flex;
+    align-items: center;
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+  
+  .portraitWrapper {
+    width: 320px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portrait {
+    width: 100%;
+    height: auto;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  
+  .textContainer {
+    margin-left: -20px;
+  }
+  
+  .title {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 0.9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: -1px;
+  }
+  
+  .flippedTextContainer {
+    transform: rotate(180deg);
+    margin-left: -40px;
+  }
+  
+  .flippedText {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 0.9;
+    writing-mode: vertical-rl;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: -1px;
+  }
+  
+  .welcomeContainer {
+    text-align: right;
+  }
+  
+  .welcomeText {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 0.9;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    letter-spacing: -1px;
+  }
+  
+  .arrows {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80%;
+  }
+  
+  .arrow {
+    font-size: 120px;
+    font-weight: bold;
+    color: var(--color-secondary);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1200px) {
+    .title, .flippedText, .welcomeText {
+      font-size: 100px;
+    }
+    
+    .portraitWrapper {
+      width: 280px;
+      height: 370px;
+    }
+    
+    .arrow {
+      font-size: 100px;
+    }
+    
+    .logo {
+      font-size: 42px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .title, .flippedText, .welcomeText {
+      font-size: 80px;
+    }
+    
+    .portraitWrapper {
+      width: 250px;
+      height: 330px;
+    }
+    
+    .arrow {
+      font-size: 80px;
+    }
+    
+    .logo {
+      font-size: 36px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+    
+    .header {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 0 30px;
+    }
+    
+    .logo {
+      margin-bottom: 20px;
+    }
+    
+    .nav ul li {
+      margin: 0 15px;
+    }
+    
+    .content {
+      flex-direction: column;
+      padding: 20px 0;
+      height: auto;
+    }
+    
+    .heroContent {
+      flex-direction: column;
+      margin-bottom: 50px;
+    }
+    
+    .portraitWrapper {
+      width: 200px;
+      height: 280px;
+      margin-bottom: 20px;
+    }
+    
+    .textContainer, .welcomeContainer {
+      text-align: center;
+      margin-left: 0;
+    }
+    
+    .title, .flippedText, .welcomeText {
+      font-size: 60px;
+    }
+    
+    .flippedTextContainer {
+      transform: none;
+      margin-left: 0;
+    }
+    
+    .flippedText {
+      writing-mode: horizontal-tb;
+    }
+    
+    .arrows {
+      position: relative;
+      flex-direction: row;
+      transform: none;
+      height: auto;
+      width: 100%;
+      justify-content: center;
+      right: 0;
+      margin-top: 30px;
+    }
+    
+    .arrow {
+      margin: 0 20px;
+      font-size: 60px;
+    }
+  }

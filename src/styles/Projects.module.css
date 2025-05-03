@@ -1,0 +1,43 @@
+.container {
+    background-color: var(--color-project-blue);
+  }
+  
+  .showcase {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0 60px;
+    background-color: var(--color-project-blue);
+    color: var(--color-secondary);
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .detailsContainer {
+    background-color: white;
+  }
+  
+  @media (max-width: 1200px) {
+    .projectsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .showcase {
+      padding: 80px 20px 40px;
+    }
+    
+    .projectsGrid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
