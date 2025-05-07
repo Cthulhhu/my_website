@@ -1,196 +1,635 @@
-/* src/app/page.module.css - Additional styles for project sections */
-
-/* Updated container and section styles to ensure proper transitions */
-.container {
-  scroll-behavior: smooth;
-  position: relative;
+.projectDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--color-projects-text);
+  flex-grow: 1;
 }
 
-.homeSection, .aboutSection, .projectsSection, .contactSection, .projectDetailSection {
-  min-height: 100vh;
-  padding: 100px 40px;
-  position: relative;
-  scroll-margin-top: var(--header-height);
-  transition: background-color 0.5s ease;
+.projectLink {
+  color: var(--color-secondary); /* Using neon green for buttons */
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(194, 235, 14, 0.2); /* Subtle button background */
+  border: 1px solid var(--color-secondary);
 }
 
-/* Project Detail Section */
-.projectDetailSection {
+.projectLink:hover {
+  background-color: rgba(194, 235, 14, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contactSection {
+  background-color: var(--color-contact-bg);
+  color: var(--color-contact-text);
+  padding-top: calc(var(--header-height) + 40px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle patterns for visual interest while maintaining contrast */
+.contactSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(46, 49, 146, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contactContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.contactHeading {
+  flex: 0 0 40%;
+}
+
+.contactTitle {
+  font-size: 96px;
+  font-weight: bold;
+  line-height: 0.9;
+  background: linear-gradient(to right, var(--color-contact-text), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+}
+
+.formContainer {
+  flex: 0 0 50%;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.formGroup:nth-child(1) {
+  transition-delay: 200ms;
+}
+
+.formGroup:nth-child(2) {
+  transition-delay: 400ms;
+}
+
+.formGroup:nth-child(3) {
+  transition-delay: 600ms;
+}
+
+.formLabel {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--color-contact-text);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-contact-text);
+  padding: 10px 5px;
+  font-size: 18px;
+  color: var(--color-contact-text);
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 4px rgba(244, 22, 99, 0.1);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: rgba(46, 49, 146, 0.4);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.formTextarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.submitButton {
+  background-color: var(--color-primary);
+  color: white; /* White text for better contrast */
+  border: none;
+  padding: 15px 70px;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+  margin-top: 20px;
+  box-shadow: 0 4px 10px rgba(244, 22, 99, 0.3);
+}
+
+.submitButton:hover {
+  background-color: #e1004d; /* Slightly darker on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(244, 22, 99, 0.4);
+}
+
+.contactFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px;
+  margin-top: auto;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactMethod {
+  display: flex;
+  align-items: center;
+  color: var(--color-contact-text);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.contactMethod:hover {
+  transform: translateX(5px);
+}
+
+.contactIcon {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.socialLink {
+  font-size: 24px;
+  color: var(--color-contact-text);
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(46, 49, 146, 0.1);
+}
+
+.socialLink:hover {
+  transform: scale(1.2);
+  background-color: var(--color-primary);
   color: white;
-  background-color: var(--background);
-  position: relative;
-  padding: 120px 40px 80px;
 }
 
-/* Apply different background colors to each project detail section */
-#zaitoun {
+/* ===== PROJECT DETAIL SECTION ===== */
+.projectDetailSection {
+  min-height: 100vh;
+  padding: 120px 40px 80px;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+.dinner {
+  background-color: var(--color-dinner-bg);
+  color: var(--color-dinner-text);
+}
+
+.zaitoun {
   background-color: var(--color-zaitoun-bg);
   color: var(--color-zaitoun-text);
 }
 
-#minna {
+.minna {
   background-color: var(--color-minna-bg);
   color: var(--color-minna-text);
-}
-
-#dinner {
-  background-color: var(--color-dinner-bg);
-  color: var(--color-dinner-text);
 }
 
 .projectDetailContent {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .projectDetailTitle {
-  font-size: 60px;
+  font-size: 64px;
   font-weight: bold;
-  margin-bottom: 10px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out forwards;
+  margin: 0 0 10px;
+  text-align: center;
+  line-height: 1;
 }
 
 .projectDetailSubtitle {
   font-size: 24px;
-  margin-bottom: 40px;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  font-weight: normal;
+  margin: 0 0 50px;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .projectShowcase {
-  margin-bottom: 50px;
-  border-radius: 15px;
+  margin-bottom: 60px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .projectShowcaseImage {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  display: block;
 }
 
 .projectInfoGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: 30px;
   margin-bottom: 60px;
 }
 
 .projectInfoSection {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out forwards;
+  padding: 25px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.projectInfoSection:nth-child(1) {
-  animation-delay: 0.5s;
+.projectInfoSection:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.projectInfoSection:nth-child(2) {
-  animation-delay: 0.6s;
+/* Add project-specific styling for info sections */
+.dinner .projectInfoSection {
+  background-color: rgba(0, 115, 44, 0.1);
+  border-left: 4px solid var(--color-dinner-text);
 }
 
-.projectInfoSection:nth-child(3) {
-  animation-delay: 0.7s;
+.zaitoun .projectInfoSection {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--color-zaitoun-accent);
 }
 
-.projectInfoSection:nth-child(4) {
-  animation-delay: 0.8s;
+.minna .projectInfoSection {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 4px solid var(--color-minna-accent);
 }
 
 .infoSectionTitle {
-  font-size: 24px;
+  font-size: 28px;
+  margin: 0 0 15px;
   font-weight: bold;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid currentColor;
 }
 
 .infoSectionText {
   font-size: 16px;
   line-height: 1.6;
+  margin: 0;
 }
 
 .processList {
-  list-style-type: none;
-  padding: 0;
+  margin: 0;
+  padding-left: 20px;
 }
 
 .processList li {
-  position: relative;
-  padding-left: 20px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   line-height: 1.6;
-  font-size: 16px;
-}
-
-.processList li:before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  top: 0;
 }
 
 .galleryTitle {
   font-size: 28px;
-  margin-bottom: 25px;
+  margin: 0 0 20px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out 0.9s forwards;
+  position: relative;
+}
+
+/* Add decorative element to gallery title */
+.galleryTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: currentColor;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
 .galleryGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .galleryItem {
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out forwards;
-}
-
-.galleryItem:nth-child(1) {
-  animation-delay: 1s;
-}
-
-.galleryItem:nth-child(2) {
-  animation-delay: 1.1s;
-}
-
-.galleryItem:nth-child(3) {
-  animation-delay: 1.2s;
-}
-
-.galleryItem:nth-child(4) {
-  animation-delay: 1.3s;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
 }
 
 .galleryItem:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.galleryItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.galleryItem:hover::before {
+  opacity: 1;
 }
 
 .galleryImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease;
 }
 
 .galleryItem:hover .galleryImage {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 1200px) {
+  .title, .flippedText, .welcomeText {
+    font-size: 100px;
+  }
+  
+  .portraitWrapper {
+    width: 280px;
+    height: 370px;
+  }
+  
+  .arrow {
+    font-size: 100px;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contactTitle {
+    font-size: 80px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .homeSection, .aboutSection, .projectsSection, .contactSection {
+    padding: 80px 30px;
+  }
+  
+  .title, .flippedText, .welcomeText {
+    font-size: 80px;
+  }
+  
+  .portraitWrapper {
+    width: 250px;
+    height: 330px;
+  }
+  
+  .arrow {
+    font-size: 80px;
+  }
+  
+  .sectionTitle {
+    font-size: 60px;
+    margin-bottom: 40px;
+  }
+  
+  .bioText {
+    font-size: 20px;
+  }
+  
+  .contactContent {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contactTitle {
+    font-size: 70px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px 20px;
+    height: auto;
+  }
+  
+  .logo {
+    margin-bottom: 10px;
+  }
+  
+  .nav li {
+    margin: 0 10px;
+  }
+  
+  .homeSection, .aboutSection, .projectsSection, .contactSection {
+    padding: 60px 20px;
+    padding-top: 120px;
+  }
+  
+  .content {
+    flex-direction: column;
+  }
+  
+  .heroContent {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  
+  .portraitWrapper {
+    width: 200px;
+    height: 280px;
+    margin-bottom: 20px;
+  }
+  
+  .textContainer, .welcomeContainer {
+    text-align: center;
+    margin-left: 0;
+  }
+  
+  .title, .flippedText, .welcomeText {
+    font-size: 60px;
+  }
+  
+  .flippedTextContainer {
+    transform: none;
+    margin-left: 0;
+  }
+  
+  .flippedText {
+    writing-mode: horizontal-tb;
+  }
+  
+  .arrows {
+    position: relative;
+    flex-direction: row;
+    transform: none;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    right: 0;
+    margin-top: 30px;
+  }
+  
+  .arrow {
+    margin: 0 20px;
+    font-size: 60px;
+  }
+  
+  .sectionTitle {
+    font-size: 48px;
+  }
+  
+  .aboutContent {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .projectDetailTitle {
+    font-size: 36px;
+  }
+  
+  .projectDetailSubtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .projectInfoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .galleryGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contactTitle {
+    font-size: 60px;
+    text-align: center;
+  }
+  
+  .formLabel {
+    font-size: 20px;
+  }
+  
+  .submitButton {
+    width: 100%;
+  }
+  
+  .contactFooter {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .contactMethods {
+    align-items: center;
+  }
+  
+  .socialLinks {
+    margin-top: 20px;
+  }
+}

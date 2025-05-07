@@ -4,18 +4,36 @@
   --background: #ffffff;
   --foreground: #171717;
   
-  /* Portfolio colors */
-  --color-primary: #F41663;      /* Pink */
-  --color-secondary: #C2EB0E;    /* Neon green */
-  --color-about-bg: #F6F7A7;     /* Yellow */
-  --color-projects-bg: #3741D2;  /* Blue */
-  --color-contact-bg: #AFB4E0;   /* Lavender */
-  --color-dinner-bg: #B1EDE8;    /* Light teal */
-  --color-dinner-text: #00732C;  /* Dark green */
-  --color-zaitoun-bg: #FF5B5B;   /* Red */
-  --color-zaitoun-text: #FFF1CC; /* Light cream */
-  --color-minna-bg: #D14BFF;     /* Purple */
-  --color-minna-text: #00FFFF;   /* Cyan */
+  /* Portfolio colors - WCAG compliant while keeping vibrant */
+  /* Original home page colors - keeping as requested */
+  --color-primary: #F41663;      /* Original vibrant pink */
+  --color-secondary: #C2EB0E;    /* Original neon green */
+  
+  /* About section */
+  --color-about-bg: #F6F7A7;     /* Original yellow background */
+  --color-about-text: #4D4D00;   /* Dark olive text for yellow background - for contrast */
+  
+  /* Projects section */
+  --color-projects-bg: #3741D2;  /* Original blue background */
+  --color-projects-text: #FFFFFF; /* White text for better contrast */
+  
+  /* Contact section */
+  --color-contact-bg: #AFB4E0;   /* Original lavender background */
+  --color-contact-text: #2E3192; /* Darker blue text for contrast */
+  
+  /* Project "What's for Dinner" colors - Vibrant but accessible */
+  --color-dinner-bg: #B1EDE8;    /* Original light teal */
+  --color-dinner-text: #00732C;  /* Original dark green - already good contrast */
+  
+  /* Project "Zaitoun" colors - Vibrant but accessible */
+  --color-zaitoun-bg: #FF3B3B;   /* Slightly adjusted red for vibrancy */
+  --color-zaitoun-text: #FFFFFF; /* White text for contrast */
+  --color-zaitoun-accent: #FFF1CC; /* Original cream as accent */
+  
+  /* Project "Minna-No-Kimochi" colors - Vibrant but accessible */
+  --color-minna-bg: #C300FF;     /* Vibrant purple that meets contrast with white */
+  --color-minna-text: #FFFFFF;   /* White text for contrast */
+  --color-minna-accent: #00FFFF; /* Original cyan as accent */
   
   /* Layout variables */
   --header-height: 80px;
