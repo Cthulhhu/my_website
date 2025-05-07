@@ -51,53 +51,95 @@ export default function ScrollHandler() {
       
       if (!header) return;
       
-      // Get sections
+      // Get all important sections
       const homeSection = document.getElementById('home');
       const aboutSection = document.getElementById('about');
-      const projectsSection = document.getElementById('projects');
+      const myWorkSection = document.getElementById('my-work'); // MY WORK section
+      const myProjectsSection = document.getElementById('projects'); // MY PROJECTS section
+      const dinnerSection = document.getElementById('dinner');
+      const zaitounSection = document.getElementById('zaitoun');
+      const minnaSection = document.getElementById('minna');
       const contactSection = document.getElementById('contact');
       
-      // Get sections' positions
-      const homeSectionTop = homeSection?.offsetTop || 0;
-      const aboutSectionTop = aboutSection?.offsetTop || 0;
-      const projectsSectionTop = projectsSection?.offsetTop || 0;
-      const contactSectionTop = contactSection?.offsetTop || 0;
+      // Function to determine if an element is in viewport
+      const isInViewport = (element, offset = 100) => {
+        if (!element) return false;
+        const rect = element.getBoundingClientRect();
+        return rect.top <= offset && rect.bottom >= 0;
+      };
       
-      // Determine which section is currently visible
-      // and adjust header styling accordingly
-      if (scrollPosition >= contactSectionTop - 100) {
-        header.style.backgroundColor = 'var(--color-contact-bg)';
-        header.style.color = 'var(--color-primary)';
-      } else if (scrollPosition >= projectsSectionTop - 100) {
-        header.style.backgroundColor = 'var(--color-projects-bg)';
-        header.style.color = 'var(--color-secondary)';
-      } else if (scrollPosition >= aboutSectionTop - 100) {
-        header.style.backgroundColor = 'var(--color-about-bg)';
-        header.style.color = 'var(--color-primary)';
-      } else {
+      // Home section colors
+      if (isInViewport(homeSection)) {
         header.style.backgroundColor = 'var(--color-primary)';
         header.style.color = 'var(--color-secondary)';
+        setActiveNav('#home');
       }
-      
-      // Update active navigation link - more robust selector
-      // This will find all anchor links in the header, including those nested in other elements
-      const navLinks = header.querySelectorAll('a[href^="#"]');
-      
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-      });
-      
-      if (scrollPosition >= contactSectionTop - 100) {
-        header.querySelector('a[href="#contact"]')?.classList.add('active');
-      } else if (scrollPosition >= projectsSectionTop - 100) {
-        header.querySelector('a[href="#projects"]')?.classList.add('active');
-      } else if (scrollPosition >= aboutSectionTop - 100) {
-        header.querySelector('a[href="#about"]')?.classList.add('active');
-      } else {
-        header.querySelector('a[href="#home"]')?.classList.add('active');
+      // About section colors
+      else if (isInViewport(aboutSection)) {
+        header.style.backgroundColor = 'var(--color-about-bg)';
+        header.style.color = 'var(--color-primary)';
+        setActiveNav('#about');
+      }
+      // MY WORK section colors
+      else if (isInViewport(myWorkSection)) {
+        // From your screenshot, it looks like MY WORK has a blue background
+        header.style.backgroundColor = '#3741D2'; // Blue background
+        header.style.color = '#C2EB0E'; // Lime green text
+        setActiveNav('#my-work');
+      }
+      // MY PROJECTS section colors (including project details)
+      else if (isInViewport(myProjectsSection) || 
+               isInViewport(dinnerSection) || 
+               isInViewport(zaitounSection) || 
+               isInViewport(minnaSection)) {
+        
+        if (isInViewport(myProjectsSection)) {
+          // Main projects section
+          header.style.backgroundColor = 'var(--color-projects-bg)';
+          header.style.color = 'var(--color-secondary)';
+          setActiveNav('#projects');
+        } 
+        else if (isInViewport(dinnerSection)) {
+          // What's For Dinner project
+          header.style.backgroundColor = 'var(--color-dinner-bg)';
+          header.style.color = 'var(--color-dinner-text)';
+          setActiveNav('#projects');
+        }
+        else if (isInViewport(zaitounSection)) {
+          // Zaitoun project
+          header.style.backgroundColor = 'var(--color-zaitoun-bg)';
+          header.style.color = 'var(--color-zaitoun-text)';
+          setActiveNav('#projects');
+        }
+        else if (isInViewport(minnaSection)) {
+          // Minna-No-Kimochi project
+          header.style.backgroundColor = 'var(--color-minna-bg)';
+          header.style.color = 'var(--color-minna-text)';
+          setActiveNav('#projects');
+        }
+      }
+      // Contact section colors
+      else if (isInViewport(contactSection)) {
+        header.style.backgroundColor = 'var(--color-contact-bg)';
+        header.style.color = 'var(--color-primary)';
+        setActiveNav('#contact');
       }
     };
     
+    // Helper function to set the active navigation item
+    const setActiveNav = (sectionId) => {
+      // Remove 'active' class from all nav links
+      const navLinks = document.querySelectorAll('header nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      
+      // Add 'active' class to current section link
+      const currentLink = document.querySelector(`header nav a[href="${sectionId}"]`);
+      if (currentLink) {
+        currentLink.classList.add('active');
+      }
+    };
+    
+    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
     
     // Handle initial scroll position on page load

@@ -1,133 +1,237 @@
 /* src/components/ProjectDetails.module.css */
 
-.projectDetailSection {
-    padding: 100px 40px;
+/* Base Project Section */
+.projectSection {
     position: relative;
+    margin-bottom: 120px;
     scroll-margin-top: 80px;
-    min-height: 100vh;
   }
   
-  /* Project-specific styles */
-  #zaitoun {
-    background-color: var(--color-zaitoun-bg);
-    color: var(--color-zaitoun-text);
+  /* Project-specific themes */
+  .dinnerProject {
+    --primary: var(--color-dinner-text);
+    --secondary: #4CB5A7;
+    --accent: #B1EDE8;
+    --header-bg: linear-gradient(135deg, #00732C 0%, #4CB5A7 100%);
+    --card-border: var(--color-dinner-text);
+    --text-light: #fff;
+    --text-dark: #2A2A2A;
   }
   
-  #minna {
-    background-color: var(--color-minna-bg);
-    color: var(--color-minna-text);
+  .zaitounProject {
+    --primary: #D14534;
+    --secondary: #FF5B5B;
+    --accent: #FFF1CC;
+    --header-bg: linear-gradient(135deg, #FF5B5B 0%, #D14534 100%);
+    --card-border: #D14534;
+    --text-light: #FFF1CC;
+    --text-dark: #43281C;
   }
   
-  #dinner {
-    background-color: var(--color-dinner-bg);
-    color: var(--color-dinner-text);
+  .minnaProject {
+    --primary: var(--color-minna-text);
+    --secondary: var(--color-minna-bg);
+    --accent: #1E1E1E;
+    --header-bg: linear-gradient(135deg, #D14BFF 0%, #9013FE 100%);
+    --card-border: var(--color-minna-text);
+    --text-light: #fff;
+    --text-dark: #1A1A1A;
   }
   
-  .projectDetailContent {
+  /* Project Header */
+  .projectHeader {
+    position: relative;
+    padding: 120px 0 60px;
+    background: var(--header-bg);
+    color: var(--text-light);
+  }
+  
+  .headerContent {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
   }
   
-  .projectDetailTitle {
-    font-size: 72px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    line-height: 1;
+  .titleContainer {
+    max-width: 760px;
   }
   
-  .projectDetailSubtitle {
-    font-size: 24px;
-    margin-bottom: 50px;
-    max-width: 800px;
+  .projectCategory {
+    display: inline-block;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    margin-bottom: 16px;
   }
   
-  .projectShowcase {
-    margin-bottom: 60px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  .projectTitle {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0 0 24px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
   }
   
-  .projectShowcaseImage {
+  .titleDivider {
+    width: 80px;
+    height: 4px;
+    background-color: var(--text-light);
+    margin-bottom: 24px;
+  }
+  
+  .projectDescription {
+    font-size: 22px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
+    max-width: 700px;
+  }
+  
+  /* Showcase */
+  .showcase {
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .showcaseWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    position: relative;
+  }
+  
+  .showcaseImage {
     width: 100%;
     height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     object-fit: cover;
   }
   
-  .projectInfoGrid {
+  /* Content Container */
+  .contentContainer {
+    max-width: 1200px;
+    margin: 100px auto 0;
+    padding: 0 60px;
+  }
+  
+  /* Section Grid */
+  .sectionGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-bottom: 60px;
+    gap: 30px;
+    margin-bottom: 100px;
   }
   
-  .projectInfoSection {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s, transform 0.8s;
+  /* Info Cards */
+  .infoCard {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--card-border);
   }
   
-  .sectionVisible .projectInfoSection {
-    opacity: 1;
-    transform: translateY(0);
+  .infoCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
   }
   
-  .projectInfoSection:nth-child(1) {
-    transition-delay: 100ms;
+  .cardHeader {
+    padding: 24px 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
   
-  .projectInfoSection:nth-child(2) {
-    transition-delay: 200ms;
+  .cardTitle {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
   
-  .projectInfoSection:nth-child(3) {
-    transition-delay: 300ms;
+  .cardBody {
+    padding: 30px;
+    color: var(--text-dark);
   }
   
-  .projectInfoSection:nth-child(4) {
-    transition-delay: 400ms;
+  .cardBody p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.7;
   }
   
-  .infoSectionTitle {
-    font-size: 28px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  .infoSectionText {
-    font-size: 18px;
-    line-height: 1.6;
-  }
-  
+  /* Process List */
   .processList {
-    list-style-type: none;
-    padding-left: 0;
-    font-size: 18px;
-    line-height: 1.6;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   
   .processList li {
-    margin-bottom: 15px;
-    position: relative;
-    padding-left: 30px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
   }
   
-  .processList li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-weight: bold;
+  .processList li:last-child {
+    margin-bottom: 0;
   }
   
+  .processStep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--primary);
+    color: var(--text-light);
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+  
+  .processList li p {
+    margin: 0;
+    padding-top: 6px;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  
+  /* Gallery */
   .projectGallery {
-    margin-top: 80px;
+    margin-bottom: 40px;
   }
   
   .galleryTitle {
-    font-size: 36px;
-    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 40px;
     text-align: center;
+    position: relative;
+    padding-bottom: 16px;
+  }
+  
+  .galleryTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
   }
   
   .galleryGrid {
@@ -137,68 +241,276 @@
   }
   
   .galleryItem {
-    border-radius: 15px;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
   }
   
   .galleryItem:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .galleryImageContainer {
+    position: relative;
+    overflow: hidden;
   }
   
   .galleryImage {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .galleryItem:hover .galleryImage {
+    transform: scale(1.03);
+  }
+  
+  .imageOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 30px 20px 20px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .galleryItem:hover .imageOverlay {
+    opacity: 1;
+  }
+  
+  .imageCaption {
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  /* Card color variations - Dinner Project */
+  .dinnerProject .backgroundCard {
+    border-top-color: #00732C;
+  }
+  
+  .dinnerProject .problemCard {
+    border-top-color: #4CB5A7;
+  }
+  
+  .dinnerProject .processCard {
+    border-top-color: #B1EDE8;
+  }
+  
+  .dinnerProject .resultsCard {
+    border-top-color: #00732C;
+  }
+  
+  /* Card color variations - Zaitoun Project */
+  .zaitounProject .backgroundCard {
+    border-top-color: #FFF1CC;
+  }
+  
+  .zaitounProject .problemCard {
+    border-top-color: #FF5B5B;
+  }
+  
+  .zaitounProject .processCard {
+    border-top-color: #D14534;
+  }
+  
+  .zaitounProject .resultsCard {
+    border-top-color: #FF5B5B;
+  }
+  
+  /* Card color variations - Minna Project */
+  .minnaProject .backgroundCard {
+    border-top-color: var(--color-minna-text);
+  }
+  
+  .minnaProject .problemCard {
+    border-top-color: var(--color-minna-bg);
+  }
+  
+  .minnaProject .processCard {
+    border-top-color: var(--color-minna-text);
+  }
+  
+  .minnaProject .resultsCard {
+    border-top-color: var(--color-minna-bg);
+  }
+  
+  /* Card title variations */
+  .dinnerProject .cardTitle {
+    color: var(--color-dinner-text);
+  }
+  
+  .zaitounProject .cardTitle {
+    color: #D14534;
+  }
+  
+  .minnaProject .cardTitle {
+    color: var(--color-minna-text);
+  }
+  
+  /* Process step variations */
+  .dinnerProject .processStep {
+    background-color: var(--color-dinner-text);
+  }
+  
+  .zaitounProject .processStep {
+    background-color: #D14534;
+  }
+  
+  .minnaProject .processStep {
+    background-color: var(--color-minna-bg);
+  }
+  
+  /* Gallery title variations */
+  .dinnerProject .galleryTitle::after {
+    background-color: var(--color-dinner-text);
+  }
+  
+  .zaitounProject .galleryTitle::after {
+    background-color: #D14534;
+  }
+  
+  .minnaProject .galleryTitle::after {
+    background-color: var(--color-minna-text);
   }
   
   /* Responsive styles */
   @media (max-width: 1200px) {
-    .projectDetailTitle {
-      font-size: 60px;
+    .headerContent, .showcaseWrapper, .contentContainer {
+      padding: 0 40px;
     }
     
-    .projectDetailSubtitle {
-      font-size: 22px;
+    .projectTitle {
+      font-size: 54px;
+    }
+    
+    .projectDescription {
+      font-size: 20px;
     }
   }
   
   @media (max-width: 991px) {
-    .projectInfoGrid {
+    .projectHeader {
+      padding: 100px 0 50px;
+    }
+    
+    .headerContent, .showcaseWrapper, .contentContainer {
+      padding: 0 30px;
+    }
+    
+    .projectTitle {
+      font-size: 46px;
+    }
+    
+    .projectDescription {
+      font-size: 18px;
+    }
+    
+    .sectionGrid {
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: 25px;
     }
     
-    .projectDetailTitle {
-      font-size: 48px;
-    }
-    
-    .projectDetailSubtitle {
+    .cardTitle {
       font-size: 20px;
-      margin-bottom: 40px;
     }
     
-    .infoSectionTitle {
-      font-size: 24px;
+    .cardBody p, .processList li p {
+      font-size: 16px;
+    }
+    
+    .galleryGrid {
+      gap: 20px;
     }
   }
   
-  @media (max-width: 768px) {
-    .projectDetailSection {
-      padding: 80px 20px;
+  @media (max-width: 767px) {
+    .projectHeader {
+      padding: 80px 0 40px;
+    }
+    
+    .headerContent, .showcaseWrapper, .contentContainer {
+      padding: 0 20px;
+    }
+    
+    .projectTitle {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    
+    .titleDivider {
+      margin-bottom: 16px;
+    }
+    
+    .projectDescription {
+      font-size: 16px;
+    }
+    
+    .projectCategory {
+      font-size: 14px;
+      padding: 4px 10px;
+      margin-bottom: 12px;
+    }
+    
+    .cardHeader {
+      padding: 16px 20px;
+    }
+    
+    .cardBody {
+      padding: 20px;
+    }
+    
+    .galleryTitle {
+      font-size: 24px;
+      margin-bottom: 30px;
     }
     
     .galleryGrid {
       grid-template-columns: 1fr;
     }
     
-    .projectDetailTitle {
-      font-size: 36px;
+    .processList li {
+      margin-bottom: 20px;
     }
     
-    .projectDetailSubtitle {
+    .processStep {
+      width: 30px;
+      height: 30px;
+      font-size: 12px;
+      margin-right: 12px;
+    }
+    
+    .showcase {
+      margin-top: -30px;
+    }
+    
+    .contentContainer {
+      margin-top: 70px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projectTitle {
+      font-size: 32px;
+    }
+    
+    .cardTitle {
       font-size: 18px;
-      margin-bottom: 30px;
+    }
+    
+    .imageCaption {
+      font-size: 16px;
+    }
+    
+    .processStep {
+      margin-top: 2px;
     }
   }
