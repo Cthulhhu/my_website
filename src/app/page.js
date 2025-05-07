@@ -9,6 +9,7 @@ import Header from '../components/Header';
 import Home from '../components/Home';
 import AboutMe from '../components/AboutMe';
 import Portfolio from '../components/Portfolio';
+import ProjectDetails from '@/components/ProjectDetails';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
@@ -41,8 +42,8 @@ export default function MainPage() {
       {/* Portfolio Work Slider Section */}
       <Portfolio />
 
-
-
+      {/* Project Details  Work Slider Section */}
+      <ProjectDetails />
 
       {/* Contact Section */}
       <Contact />
