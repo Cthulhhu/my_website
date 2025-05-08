@@ -29,7 +29,6 @@ export default function Footer() {
               <li><Link href="#home">Home</Link></li>
               <li><Link href="#about">About</Link></li>
               <li><Link href="#portfolio">My Work</Link></li>
-              <li><Link href="#projects">Projects</Link></li>
               <li><Link href="#contact">Contact</Link></li>
             </ul>
           </div>
@@ -46,9 +45,8 @@ export default function Footer() {
           <div className={styles.navColumn}>
             <h4 className={styles.navTitle}>Connect</h4>
             <ul className={styles.navList}>
-              <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="mailto:contact@aminnassraoui.com">Email</a></li>
+              <li><a href="https://github.com/Cthulhhu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="mailto:nassraouiamin@gmail.com">Email</a></li>
             </ul>
           </div>
         </div>

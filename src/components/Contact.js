@@ -72,14 +72,14 @@ export default function Contact() {
           </h2>
           
           <div className={styles.contactChannels}>
-            <a href="tel:+1234567890" className={styles.contactChannel}>
+            <a href="tel:+4807443518" className={styles.contactChannel}>
               <div className={styles.channelIcon}>
                 <span className={styles.emoji}>📱</span>
               </div>
               <span>Phone Number</span>
             </a>
             
-            <a href="mailto:contact@aminnassraoui.com" className={styles.contactChannel}>
+            <a href="mailto:nassraouiamin@gmail.com" className={styles.contactChannel}>
               <div className={styles.channelIcon}>
                 <span className={styles.emoji}>📧</span>
               </div>
@@ -154,14 +154,9 @@ export default function Contact() {
       
       <div className={styles.socialLinksContainer}>
         <div className={styles.socialLinks}>
-          <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+          <a href="https://github.com/Cthulhhu" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
             <div className={styles.socialIconWrapper}>
               <span className={styles.emoji}>🐱</span>
-            </div>
-          </a>
-          <a href="https://linkedin.com/in/yourname" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-            <div className={styles.socialIconWrapper}>
-              <span className={styles.emoji}>🔗</span>
             </div>
           </a>
         </div>

@@ -103,7 +103,6 @@ export default function Header() {
             <li><a href="#home" onClick={handleLinkClick} className={activeSection === 'home' ? styles.active : ''}>HOME</a></li>
             <li><a href="#about" onClick={handleLinkClick} className={activeSection === 'about' ? styles.active : ''}>ABOUT</a></li>
             <li><a href="#portfolio" onClick={handleLinkClick} className={activeSection === 'portfolio' ? styles.active : ''}>MY WORK</a></li>
-            <li><a href="#projects" onClick={handleLinkClick} className={activeSection === 'projects' ? styles.active : ''}>MY PROJECTS</a></li>
             <li><a href="#contact" onClick={handleLinkClick} className={activeSection === 'contact' ? styles.active : ''}>CONTACT</a></li>
           </ul>
         </nav>
