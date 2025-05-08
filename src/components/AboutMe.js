@@ -31,9 +31,7 @@ export default function AboutMe() {
           </p>
 
           <div className={styles.buttons}>
-            <a href="https://linkedin.com/in/your-link" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-            <a href="/resume.pdf" target="_blank">RESUME</a>
-            <a href="mailto:you@example.com">EMAIL ME</a>
+            <a href="mailto:nassraouiamin@gmail.com">EMAIL ME</a>
           </div>
         </div>
       </div>
